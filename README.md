@@ -17,6 +17,8 @@ A simple bookmarking API built with **FastAPI**.
 - Store timestamps in UTC for consistency
 - Sort results by newest first
 
+**Note:** Bookmarks are stored in-memory for simplicity, so data will reset when the server restarts.
+
 ## Run locally
 
 Install dependencies:
@@ -28,11 +30,25 @@ pip install fastapi uvicorn
 Start the server:
 
 ```bash
-python -m uvicorn main:app --reload
+python -m uvicorn app.main:app --reload
 ```
 
 Open Swagger UI in your browser:
 
 ```
 http://127.0.0.1:8000/docs
+```
+
+## Run tests
+
+Install test dependencies:
+
+```bash
+pip install pytest httpx
+```
+
+Run the tests:
+
+```bash
+pytest -q
 ```
